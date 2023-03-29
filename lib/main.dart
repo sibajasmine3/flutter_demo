@@ -78,7 +78,6 @@ class _MyAppState extends State<MyApp> {
     // var dummy = const ['Hello'];
     // dummy.add('Max');
     // print(dummy);
-    // dummy = [];
     // questions = []; // does not work if questions is a const
 
     return MaterialApp(
