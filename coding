@@ -1,0 +1,103 @@
+main file:
+import 'package:flutter/material.dart';
+
+import 'package:first_app/expense.dart';
+
+void main() {
+  runApp(
+    const MaterialApp(
+      home: Expense(),
+    ),
+  );
+}
+
+
+
+second part:
+
+
+import 'package:first_app/model/expenses.dart';
+import 'package:flutter/material.dart';
+
+class Expense extends StatefulWidget {
+  const Expense({super.key});
+
+  @override
+  State<Expense> createState() {
+    return _ExpenseState();
+  }
+  }
+
+class _ExpenseState extends State<Expense> {
+  final List<Expenses> _registeredExpenses = [
+    Expenses(
+      title: 'Siba Spend', 
+      amount:50.00,
+      date: DateTime.now(),
+      category: Category.food,
+    ),
+    Expenses(
+      title: 'Sheela Spend', 
+      amount:70.00,
+      date: DateTime.now(),
+      category: Category.leisure,
+    ),
+  ];
+
+
+  @override
+  Widget build(BuildContext context) {
+   return Scaffold(
+    body: Column(
+    children:const [
+      Text('The chart'),
+      Text('list'),
+    ],
+    ),
+   );
+  }
+}
+
+
+
+third part:
+import'package:flutter/material.dart';
+import'package:first_app/model/expenses.dart';
+
+
+class ExpensesList extends StatelessWidget {
+  const ExpensesList({
+    super.key, 
+    required this.expenses,
+  });
+
+ final List<Expenses> expenses;
+
+  @override
+  Widget build(BuildContext context) {
+  }
+
+}
+
+
+fourth part:
+import 'package:uuid/uuid.dart';
+const uuid = Uuid();
+
+enum Category {food, travel, leisure, work} //keyword that allow us to create csutom type ; predefined allowed values
+
+class Expenses{
+  Expenses({
+  required this.title,
+  required this.amount,
+  required this.date,
+  required this.category,
+  //uuid package 
+  }) : id=uuid.v4(); //constructor function..here using named arg
+  
+  final String id; // to add id of type string
+  final String title;
+  final double amount;
+  final DateTime date;
+  final Category category; 
+}
